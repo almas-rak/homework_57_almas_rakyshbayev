@@ -1,5 +1,5 @@
 from django.core.handlers.wsgi import WSGIRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, RedirectView
 
 from issue_tracker.forms.form_task import TaskForm
@@ -29,3 +29,12 @@ class CreateTask(TemplateView):
             task = form.save()
             return redirect('index')
         return render(request, 'add_task.html', context={'form': form})
+
+
+class TaskDetail(TemplateView):
+    template_name = 'task_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
+        return context

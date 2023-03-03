@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} {{ task.summary }} {% endblock title %}
+{% block content %}
+<div class="container"></div>
+    <h1>{{ task.summary }}</h1>
+    <p>{{task.description}}</p>
+    <p>{{ task.status }}</p>
+    <p>{{task.type}}</p>
+    <p>{{task.created_at}}</p>
+    <p>{{task.updated_at}}</p>
+    <div class="button-row clearfix">
+    <a class="btn btn-danger float-left" href="#" role="button">DELETE</a>
+    <a class="btn btn-primary float-right" href="{% url 'index' %}" role="button">BACK</a>
+    </div>
+</div>
+
+
+
+{% endblock content %}
