@@ -17,7 +17,7 @@ class TaskForm(forms.ModelForm):
 
     def clean_summary(self):
         summary = self.cleaned_data.get('summary')
-        if len(summary) < 10:
+        if len(summary) < 5:
             raise ValidationError('Краткое описание должно быть длинее 5 символов')
         return summary
 
