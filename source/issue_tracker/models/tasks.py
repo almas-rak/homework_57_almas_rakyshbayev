@@ -25,6 +25,11 @@ class Task(models.Model):
         verbose_name='Тип'
     )
 
+    is_deleted = models.BooleanField(
+        default=False,
+        verbose_name='Удалено'
+    )
+
     created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name='Время и дата создания'
