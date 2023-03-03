@@ -23,6 +23,7 @@ class Task(models.Model):
     type = models.ForeignKey(
         to='issue_tracker.Type',
         on_delete=models.RESTRICT,
+        related_name='type',
         verbose_name='Тип'
     )
 
