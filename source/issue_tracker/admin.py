@@ -8,8 +8,18 @@ from issue_tracker.models import Type
 # Register your models here.
 
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('id', 'summary', 'description', 'status', 'type', 'created_at', 'updated_at')
-    list_editable = ('summary', 'description', 'status', 'type',)
+    list_display = (
+        'id',
+        'summary',
+        'description',
+        'status',
+        'type',
+        'created_at',
+        'updated_at',
+        'is_deleted',
+        'deleted_at'
+    )
+    list_editable = ('summary', 'description', 'status', 'type', 'is_deleted')
 
 
 admin.site.register(Task, TaskAdmin)
